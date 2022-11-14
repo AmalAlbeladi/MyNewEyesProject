@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/background"
+    tools:context=".LoginActivity">
+
+
+    <Button
+        android:id="@+id/Schedule_button"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/lavender"
+        android:text="Schedule"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="150dp" />
+
+    <Button
+        android:id="@+id/tracking_button"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/lavender"
+        android:text="Tracking"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="200dp" />
+
+    <Button
+        android:id="@+id/EmergncyContact_button"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/lavender"
+        android:text="Emergncy Contact"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="250dp" />
+
+
+    <Button
+        android:id="@+id/Profile_button"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/lavender"
+        android:text="profile"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="300dp" />
+
+    <Button
+        android:id="@+id/signOut_button"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/lavender"
+        android:text="Sign Out"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="550dp" />
+
+
+</LinearLayout>

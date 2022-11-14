@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "51146532977",
+    "project_id": "my-new-eyes",
+    "storage_bucket": "my-new-eyes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51146532977:android:b0a5da49ba2cbccd8b53d0",
+        "android_client_info": {
+          "package_name": "com.example.myneweyes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51146532977-mum8slh63tkseotcnb2r36uisbbqvc9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsi4VQcXzAbpF7ssnB_L_rlQqR9gyx9jk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51146532977-mum8slh63tkseotcnb2r36uisbbqvc9v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

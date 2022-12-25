@@ -42,8 +42,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private RadioButton bassistance;
     private RadioGroup userType;
     private Pattern PASSWORD_PATTERN =
-            Pattern.compile ("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()_[{}]:;',?/*~$^+=<>]).{6,20}$");
-    String usertype ;
+            Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()_[{}]:;',?/*~$^+=<>]).{6,20}$");
+    String usertype;
 
 
 
@@ -102,43 +102,38 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String phoneNumber = signupPhoneNumber.getText().toString().trim();
 
 
-
+        // validate of all feild
         if (userName.isEmpty() && email.isEmpty() && pass.isEmpty() && phoneNumber.isEmpty()) {
-            Toast.makeText(SignUpActivity.this, "Please fill all field", Toast.LENGTH_LONG).show();
+            Toast.makeText(SignUpActivity.this, "All field required", Toast.LENGTH_LONG).show();
         }
-
+        //check of username
         if(userName.isEmpty()){
             signupUserName.setError("Full Name is required");
             signupUserName.requestFocus();
             return;
         }
-
+        //check of email
         if(email.isEmpty()){
             signupEmail.setError("Email is required");
             signupEmail.requestFocus();
             return;
         }
-
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             signupEmail.setError("Please provide valid Email with xx@xxx.xxx format");
             signupEmail.requestFocus();
         }
-
-
-
-
+        //check of phone number
         if (phoneNumber.isEmpty()) {
             signupPhoneNumber.setError("Phone number is required");
             signupPhoneNumber.requestFocus();
             return;
         }
-
         if (!phoneNumber.matches("^05\\d{8}$")){
             signupPhoneNumber.setError("Please enter valid phone number with 05xxxxxxxx format");
             signupPhoneNumber.requestFocus();
             return;
         }
-
+        //check of password
         if(pass.isEmpty()){ //you can also check the num. of chars.
             signupPassword.setError("Password is required");
             signupPassword.requestFocus();

@@ -22,6 +22,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -43,8 +45,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private RadioGroup userType;
     private Pattern PASSWORD_PATTERN =
             Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()_[{}]:;',?/*~$^+=<>]).{6,20}$");
-    String usertype;
-
+    String usertype,temp_key;
+    DatabaseReference root;
 
 
     @Override
@@ -162,7 +164,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
         String finalUsertype = usertype;
-        mauth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        /*mauth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
@@ -187,11 +189,98 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                 }
             }
+        });*/
+
+        mauth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(this,new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful())
+                {
+                    /*Users Users = new Users(userName, email, phoneNumber,pass, finalUsertype);
+                    FirebaseDatabase.getInstance().getReference("Users_Register_Info")
+                            .child(FirebaseAuth.getInstance().getCurrentUser()
+                                    .getUid()).setValue(Users).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(SignUpActivity.this, "User has been register successfully", Toast.LENGTH_LONG).show();
+                                        startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                                    } else {
+                                        Toast.makeText(SignUpActivity.this, "Failed to register! Try again", Toast.LENGTH_LONG).show();
+
+                                    }
+                                }
+                            });*/
+                    sendemailnotificationmessage(userName, email, phoneNumber,pass, finalUsertype);
+                }
+                else
+                {
+                    String message=task.getException().getMessage();
+                    Toast.makeText(SignUpActivity.this, "Error "+message, Toast.LENGTH_SHORT).show();
+
+                }
+            }
         });
-
-        }
-
-
     }
+
+
+    private void sendusertologinactivity(String userName,String email,String phoneNumber,String pass,String finalUsertype)
+    {
+        root= FirebaseDatabase.getInstance().getReference().child("Users");
+        Map<String, Object> map1 = new HashMap<>();
+        temp_key = root.push().getKey();
+        root.updateChildren(map1);
+
+        Map<String, Object> map = new HashMap<>();
+        temp_key = root.push().getKey();
+        root.updateChildren(map);
+
+        DatabaseReference user = root.child(temp_key);
+
+        Map<String, Object> map2 = new HashMap<>();
+        map2.put("userName", userName);
+        map2.put("email",  email);
+        map2.put("phoneNumber",  phoneNumber);
+        map2.put("pass",  pass);
+        map2.put("finalUsertype",  finalUsertype);
+
+
+        user.updateChildren(map2);
+
+        Intent loginintent=new Intent(SignUpActivity.this,LoginActivity.class);
+        startActivity(loginintent);
+        finish();
+    }
+
+
+    private void sendemailnotificationmessage(String userName,String email,String phoneNumber,String pass,String finalUsertype)
+    {
+        FirebaseUser user = mauth.getCurrentUser();
+        if(user !=null)
+        {
+
+            user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task)
+                {
+
+                    if(task.isSuccessful())
+                    {
+                        Toast.makeText(SignUpActivity.this, "Registration successful ,Please verify your account", Toast.LENGTH_LONG).show();
+                        sendusertologinactivity(userName, email, phoneNumber,pass, finalUsertype);
+                        mauth.signOut();
+                    }
+                    else
+                    {
+                        String error=task.getException().getMessage();
+                        Toast.makeText(SignUpActivity.this, "Error: "+error, Toast.LENGTH_SHORT).show();
+                        mauth.signOut();
+                    }
+                }
+            });
+        }
+    }
+}
 
 

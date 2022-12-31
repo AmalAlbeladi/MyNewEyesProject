@@ -1,3 +1,4 @@
+
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
@@ -5,7 +6,7 @@ plugins {
 
 android {
     namespace 'com.example.myneweyes'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.myneweyes"
@@ -27,7 +28,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    buildToolsVersion '28'
+    buildToolsVersion '33.0.0'
     ndkVersion '28.0.2'
 }
 
@@ -41,7 +42,19 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:24.4.0'
     implementation 'com.google.firebase:firebase-database:20.1.0'
     implementation 'com.google.firebase:firebase-messaging:23.1.1'
+    implementation 'com.google.firebase:firebase-common-ktx:20.2.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation platform('com.google.firebase:firebase-bom:31.1.1')
+    // Firebase functions
+    implementation 'com.google.firebase:firebase-functions:20.0.1'
+
+// Firebase messaging
+    implementation 'com.google.firebase:firebase-messaging:20.2.1'
+
+// Firebase Realtime database
+    implementation platform('com.google.firebase:firebase-bom:29.0.4')
+    implementation 'com.google.firebase:firebase-database'
 }

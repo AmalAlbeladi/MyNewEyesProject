@@ -78,12 +78,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-        redSensor();
+        readSensor();
     }
 
 
 
-    public void redSensor(){
+    public void readSensor(){
 
         // Set up Firebase database reference
        mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 readRFID = dataSnapshot.getValue(String.class);
 
                 if (readRFID.equals("true")) {
-                  sendLocalNotification("Your class!", "You have arrived to your class!");
+                 sendLocalNotification("Your class!", "You have arrived to your class!");
                 }
             }
 
@@ -105,13 +105,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         // Set up ultrasonic sensor listener
         mDatabase.child("UltrasonicSensor").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 readUltrasonic = dataSnapshot.getValue(String.class);
                 if (readUltrasonic.equals("true")) {
-                    sendLocalNotification("Obstacles!!", "There are obstacles front of you");
+                   sendLocalNotification("Obstacles!!", "There are obstacles front of you");
 
                 }
             }
@@ -125,14 +126,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendLocalNotification(String notificationTitle, String notificationBody) {
-        /*NotificationCompat.Builder builder = new NotificationCompat.Builder(MainActivity.this)
-                .setSmallIcon(R.drawable.ic_baseline_circle_notifications_24)
-                .setContentTitle(notificationTitle)
-                .setContentText(notificationBody)
-                .setPriority(NotificationCompat.PRIORITY_HIGH);
-
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-        notificationManager.notify(0, builder.build());*/
 
         NotificationManager mNotificationManager;
 

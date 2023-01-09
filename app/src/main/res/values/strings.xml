@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">My New Eyes</string>
+
+    <string-array name="course_Days">
+        <item>U</item>
+        <item>M</item>
+        <item>T</item>
+        <item>W</item>
+        <item>R</item>
+        <item>U.T.R</item>
+        <item>M.W</item>
+    </string-array>
+
+    <string-array name="course_Time">
+
+        <item>8:00 am</item>
+        <item>9:00 am</item>
+        <item>10:00 am</item>
+        <item>11:00 am</item>
+
+
+    </string-array>
 </resources>

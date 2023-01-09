@@ -15,6 +15,13 @@
         android:theme="@style/Theme.MyNewEyes"
         tools:targetApi="31">
         <activity
+            android:name=".ScheduleActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -25,7 +32,6 @@
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -57,8 +63,5 @@
             android:name="android.app.lib_name"
             android:value="" />
     </application>
-
-
-
 
 </manifest>

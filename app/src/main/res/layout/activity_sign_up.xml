@@ -39,7 +39,8 @@
                 android:id="@+id/signup_userName"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="10dp"
+                android:inputType="text"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:drawablePadding="8dp"
@@ -51,7 +52,8 @@
                 android:id="@+id/signup_email"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
+                android:inputType="textEmailAddress"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_email_24"
                 android:drawablePadding="8dp"
@@ -65,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
+                android:inputType="phone"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_phone_24"
                 android:drawablePadding="8dp"
@@ -76,7 +79,8 @@
                 android:id="@+id/signup_password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
+                android:inputType="textPassword"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/ic_baseline_lock_24"
                 android:drawablePadding="8dp"
@@ -84,8 +88,18 @@
                 android:padding="8dp"
                 android:textColor="@color/black" />
 
-
-                android:fontFamily="sans-serif"/>
+            <EditText
+                android:id="@+id/EmailOfRelated"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/ic_baseline_email_24"
+                android:drawablePadding="8dp"
+                android:hint="Email of another person"
+                android:padding="8dp"
+                android:textColor="@color/black" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -94,7 +108,7 @@
                 android:text="I would like to use the application as:"
                 android:layout_gravity="center"
                 android:padding="8dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:textColor="@color/lavender"
                 android:textSize="16sp"/>
 
@@ -102,12 +116,17 @@
             <RadioGroup
                 android:id="@+id/radioType"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                >
 
                 <RadioButton
                     android:id="@+id/radioBilndStudent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="Blind student"
                     />
 
@@ -115,6 +134,7 @@
                     android:id="@+id/radioBlindAssistant"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="Blind assistant"
                     />
             </RadioGroup>
@@ -126,7 +146,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:padding="10dp"
                 android:text="Already have an account? Sign in"
                 android:textColor="@color/lavender"
@@ -136,7 +156,7 @@
                 android:id="@+id/signup_button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="5dp"
                 android:backgroundTint="@color/lavender"
                 android:text="Sign Up"
                 android:textSize="18sp"

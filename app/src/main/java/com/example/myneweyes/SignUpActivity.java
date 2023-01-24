@@ -37,7 +37,7 @@ import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth mauth;
-    private EditText signupUserName, signupPhoneNumber, signupEmail, signupPassword;
+    private EditText signupUserName, signupPhoneNumber, signupEmail, EmailOfRelated, signupPassword;
     private Button signupButton;
     private TextView loginRedirectText;
     private RadioButton bstudent;
@@ -61,6 +61,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         signupUserName = findViewById(R.id.signup_userName);
         signupEmail = findViewById(R.id.signup_email);
+        EmailOfRelated = findViewById(R.id.EmailOfRelated);
         signupPassword = findViewById(R.id.signup_password);
         signupPhoneNumber = findViewById(R.id.signup_phoneNumber);
         bstudent = findViewById(R.id.radioBilndStudent);
@@ -102,7 +103,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String email = signupEmail.getText().toString().trim();
         String pass = signupPassword.getText().toString().trim();
         String phoneNumber = signupPhoneNumber.getText().toString().trim();
-
+        String emailOfRelated = EmailOfRelated.getText().toString().trim();
 
         // validate of all feild
         if (userName.isEmpty() && email.isEmpty() && pass.isEmpty() && phoneNumber.isEmpty()) {
@@ -159,7 +160,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         if (bassistance.isChecked()){
-            usertype = "Blind assistance ";
+            usertype = "Blind assistant";
         }
 
 
@@ -212,7 +213,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                     }
                                 }
                             });*/
-                    sendemailnotificationmessage(userName, email, phoneNumber,pass, finalUsertype);
+                    sendemailnotificationmessage(userName, email, phoneNumber,pass, finalUsertype, emailOfRelated);
                 }
                 else
                 {
@@ -225,9 +226,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
-    private void sendusertologinactivity(String userName,String email,String phoneNumber,String pass,String finalUsertype)
+    private void sendusertologinactivity(String userName,String email,String phoneNumber,String pass,String finalUsertype,String emailOfRelated)
     {
-        root= FirebaseDatabase.getInstance().getReference().child("Users");
+        root= FirebaseDatabase.getInstance().getReference().child("Users_Register_Info");
         Map<String, Object> map1 = new HashMap<>();
         temp_key = root.push().getKey();
         root.updateChildren(map1);
@@ -244,6 +245,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         map2.put("phoneNumber",  phoneNumber);
         map2.put("pass",  pass);
         map2.put("finalUsertype",  finalUsertype);
+        map2.put("related",  emailOfRelated);
 
 
         user.updateChildren(map2);
@@ -254,7 +256,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
-    private void sendemailnotificationmessage(String userName,String email,String phoneNumber,String pass,String finalUsertype)
+    private void sendemailnotificationmessage(String userName,String email,String phoneNumber,String pass,String finalUsertype, String emailOfRelated)
     {
         FirebaseUser user = mauth.getCurrentUser();
         if(user !=null)
@@ -268,7 +270,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     if(task.isSuccessful())
                     {
                         Toast.makeText(SignUpActivity.this, "Registration successful ,Please verify your account", Toast.LENGTH_LONG).show();
-                        sendusertologinactivity(userName, email, phoneNumber,pass, finalUsertype);
+                        sendusertologinactivity(userName, email, phoneNumber,pass, finalUsertype, emailOfRelated);
                         mauth.signOut();
                     }
                     else

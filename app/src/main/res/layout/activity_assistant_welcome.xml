@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".AssistantWelcomeActivity"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/background"
-    tools:context=".LoginActivity">
+    android:background="@drawable/background">
 
 
     <Button
@@ -21,6 +20,7 @@
         android:text="Schedule"
         android:textSize="18sp"
         app:cornerRadius="20dp"
+        android:onClick="OnClickAssistantSchedule"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="150dp" />
 
@@ -35,7 +35,8 @@
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="200dp" />
 
-    <Button
+   <!-- we don't need it for now
+   <Button
         android:id="@+id/EmergncyContact_button"
         android:layout_width="200dp"
         android:layout_height="60dp"
@@ -44,7 +45,7 @@
         android:textSize="18sp"
         app:cornerRadius="20dp"
         tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="250dp" />
+        tools:layout_editor_absoluteY="250dp" /> -->
 
 
     <Button
@@ -66,8 +67,8 @@
         android:text="Sign Out"
         android:textSize="18sp"
         app:cornerRadius="20dp"
+        android:onClick="onClickSignOut"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="550dp" />
-
 
 </LinearLayout>

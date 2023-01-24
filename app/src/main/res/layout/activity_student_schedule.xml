@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".StudentScheduleActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/lavender"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:text="STUDENT SCHEDULE "
+
+
+        />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:paddingBottom="350dp"
+        android:weightSum="10"
+        android:background="@color/white">
+
+    <!--table heading -->
+        <TableRow android:background="@color/lavender">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:padding="2dp"
+                android:gravity="center"
+                android:text="No."
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:gravity="center"
+                android:padding="10sp"
+                android:text="Course Name"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:padding="10sp"
+                android:gravity="center"
+                android:text="Class Room"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:padding="10sp"
+                android:gravity="center"
+                android:text="Days"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:padding="10sp"
+                android:gravity="center"
+                android:text="Time"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+        </TableRow>
+
+        <!--Table data -->
+
+        <TableRow
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:padding="10sp"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/lavender"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_CourseName"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_weight="6"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_ClassRoom"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_weight="6"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:id="@+id/txt_Days"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:entries="@array/course_Days"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_Times"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:entries="@array/course_Time"
+                android:layout_weight="4"
+                />
+
+
+
+        </TableRow>
+        <TableRow
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:padding="10sp"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="@color/lavender"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_CourseName2"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_weight="6"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_ClassRoom2"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_weight="6"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_Days2"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:entries="@array/course_Days"
+                android:layout_weight="4"
+                android:textSize="12dp"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_Times2"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:entries="@array/course_Time"
+                android:layout_weight="4"
+                />
+
+
+
+        </TableRow>
+
+        <TableRow
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:padding="10sp"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="@color/lavender"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_CourseName3"
+                android:layout_weight="6"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_ClassRoom3"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_weight="6"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_Days3"
+                android:entries="@array/course_Days"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_weight="4"
+                android:textSize="12dp"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_Times3"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:entries="@array/course_Time"
+                android:layout_weight="4"
+                />
+
+
+
+        </TableRow>
+
+
+
+    </TableLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Back"
+            android:gravity="center"
+            android:layout_gravity="left"
+            android:onClick="onClickBack"
+            android:text="BACk"
+            app:cornerRadius="20dp"
+            android:backgroundTint="@color/lavender"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

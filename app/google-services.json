@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "1016595313501",
-    "project_id": "my-new-eyes-c6f16",
-    "storage_bucket": "my-new-eyes-c6f16.appspot.com"
+    "project_number": "51146532977",
+    "firebase_url": "https://my-new-eyes-default-rtdb.firebaseio.com",
+    "project_id": "my-new-eyes",
+    "storage_bucket": "my-new-eyes.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1016595313501:android:ac6ed660906d9e957c2eb4",
+        "mobilesdk_app_id": "1:51146532977:android:3f78e0c59c7645cf8b53d0",
         "android_client_info": {
           "package_name": "com.example.myneweyes"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1016595313501-8bupbqo3i1e1l7b6mp268hg06tffmjnr.apps.googleusercontent.com",
+          "client_id": "51146532977-mum8slh63tkseotcnb2r36uisbbqvc9v.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDwrgzcyKa7BQIYWqX_coQMxoIoGBa5_ko"
+          "current_key": "AIzaSyCsi4VQcXzAbpF7ssnB_L_rlQqR9gyx9jk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1016595313501-8bupbqo3i1e1l7b6mp268hg06tffmjnr.apps.googleusercontent.com",
+              "client_id": "51146532977-mum8slh63tkseotcnb2r36uisbbqvc9v.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -81,8 +81,6 @@ public class MainActivity extends AppCompatActivity {
         readSensor();
     }
 
-
-
     public void readSensor(){
 
         // Set up Firebase database reference
@@ -91,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         mDatabase.child("RFIDsensor").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                readRFID = dataSnapshot.getValue(String.class);
+                readRFID = dataSnapshot.child("rfid").getValue(String.class);
 
                 if (readRFID.equals("true")) {
                  sendLocalNotification("Your class!", "You have arrived to your class!");
@@ -110,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         mDatabase.child("UltrasonicSensor").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                readUltrasonic = dataSnapshot.getValue(String.class);
+                readUltrasonic = dataSnapshot.child("ultrasonic").getValue(String.class);
                 if (readUltrasonic.equals("true")) {
                    sendLocalNotification("Obstacles!!", "There are obstacles front of you");
 

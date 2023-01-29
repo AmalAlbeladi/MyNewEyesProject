@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">My New Eyes</string>
 
+    <string name="notification_channel_description">ssssssssssss</string>
     <string-array name="course_Days">
         <item>U</item>
         <item>M</item>

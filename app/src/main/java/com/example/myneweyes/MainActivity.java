@@ -7,12 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
@@ -34,6 +36,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.ktx.Firebase;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,12 +52,14 @@ public class MainActivity extends AppCompatActivity {
     private String readUltrasonic;
     private NotificationManagerCompat notificationManagerCompat;
 
-    private FirebaseFirestore myRef;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        scheduleAlarm();
         notificationManagerCompat = NotificationManagerCompat.from(this);
         // Initialize buttons
         signupButton = findViewById(R.id.mainSignUp_button);
@@ -68,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        scheduleAlarm();
         // Set up loginButton onClickListener
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +86,9 @@ public class MainActivity extends AppCompatActivity {
 
         });
         readSensor();
+
+
+
     }
 
     public void readSensor(){
@@ -129,7 +139,9 @@ public class MainActivity extends AppCompatActivity {
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this.getApplicationContext(), "notify_001");
         Intent ii = new Intent(this.getApplicationContext(), MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, ii, 0);
+        final int flag =  Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE : PendingIntent.FLAG_UPDATE_CURRENT;
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, ii, flag);
 
         NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
 
@@ -160,6 +172,20 @@ public class MainActivity extends AppCompatActivity {
         mNotificationManager.notify(0, mBuilder.build());
     }
 
+
+
+
+
+
+    public void scheduleAlarm()
+    {
+
+        final int flag =  Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE : PendingIntent.FLAG_UPDATE_CURRENT;
+        Intent intent = new Intent(this, AlarmScheduleService.class);
+        PendingIntent sender = PendingIntent.getBroadcast(this, 2, intent, flag);
+        AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
+        am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, 5000, 60000, sender); // 86400000
+    }
 
 
 }

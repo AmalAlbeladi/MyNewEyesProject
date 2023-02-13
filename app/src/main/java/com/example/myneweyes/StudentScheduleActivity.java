@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -102,7 +103,8 @@ public class StudentScheduleActivity extends AppCompatActivity {
         });
     }
 
-    public void onClickBack(){
+
+    public void onClickBack(View view){
         Intent intent = new Intent(StudentScheduleActivity.this, StudentWelcomeActivity.class);
         startActivity(intent);
     }

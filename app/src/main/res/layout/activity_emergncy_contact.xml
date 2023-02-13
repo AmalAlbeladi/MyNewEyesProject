@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmergncyContact"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:gravity="center"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/custom_edittext"
+        android:drawableLeft="@drawable/ic_baseline_phone_24"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/Call"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/lavender"
+        android:text="Call"
+        android:drawableLeft="@drawable/ic_baseline_phone_242"
+        android:textSize="18sp"
+        app:cornerRadius="20dp" />
+
+
+</LinearLayout>

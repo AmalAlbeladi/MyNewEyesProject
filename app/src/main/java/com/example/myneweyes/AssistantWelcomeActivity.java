@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class AssistantWelcomeActivity extends AppCompatActivity {
 
-    Button Schedule_button;
+    Button Schedule_button,Profile_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,11 +17,20 @@ public class AssistantWelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_assistant_welcome);
 
         Schedule_button = findViewById(R.id.Schedule_button);
+        Profile_button = findViewById(R.id.Profile_button);
 
         Schedule_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AssistantWelcomeActivity.this,AssistantScheduleActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Profile_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AssistantWelcomeActivity.this,Profile.class);
                 startActivity(intent);
             }
         });

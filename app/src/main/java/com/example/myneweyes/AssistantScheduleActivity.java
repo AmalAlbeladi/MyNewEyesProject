@@ -33,8 +33,8 @@ public class AssistantScheduleActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     Spinner spnr_Days,spnr_Days2,spnr_Days3,spnr_Times,spnr_Times2,spnr_Times3;
     EditText Course_name,Course_name2,Course_name3,Class_Room,Class_Room2,Class_Room3;
-    String[] course_Days = {"U","M","T","W","R","U.T.R","M.W"};
-    String[] course_Time = {"8:00 am","9:00 am","10:00 am","11:00 am", "6:06 pm"};
+    String[] course_Days = {"U","M","T","W","R"};
+    String[] course_Time = {"8:00 am","9:00 am","10:00 am","11:00 am", "12:00 pm"};
     String course_Day1,course_Day2,course_Day3,course_Time1,course_Time2,course_Time3;
     Button save,Remove;
     ImageView delete1,delete2,delete3;
@@ -84,7 +84,6 @@ public class AssistantScheduleActivity extends AppCompatActivity {
         delete3 = findViewById(R.id.delete3);
 
         save = findViewById(R.id.Save);
-        Remove = findViewById(R.id.Remove);
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, course_Days);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -255,7 +254,7 @@ public class AssistantScheduleActivity extends AppCompatActivity {
             }
         });
 
-        Remove.setOnClickListener(new View.OnClickListener() {
+        /*Remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 root= FirebaseDatabase.getInstance().getReference().child("Courses");
@@ -286,7 +285,7 @@ public class AssistantScheduleActivity extends AppCompatActivity {
                 });
 
             }
-        });
+        });*/
 
         delete1.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,61 +1,52 @@
 package com.example.myneweyes;
+// WE REPLACED THE REAL WORKING TRACKING CODE WITH THIS, BECAUSE ONLY THIS WORKING WITH EMULATOR
+// IF YOU DON'T HAVE REAL MOBILE, JUST WORK IN EMULATOR USE THIS
+import androidx.fragment.app.FragmentActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
-public class AssistantWelcomeActivity extends AppCompatActivity {
+import com.example.myneweyes.databinding.ActivityMapsBinding;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-    Button Schedule_button,Profile_button;
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+
+    private GoogleMap mMap;
+    private ActivityMapsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_assistant_welcome);
 
-        Schedule_button = findViewById(R.id.Schedule_button);
-        Profile_button = findViewById(R.id.Profile_button);
+        binding = ActivityMapsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        Schedule_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AssistantWelcomeActivity.this,AssistantScheduleActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
-       Button tracking = (Button) findViewById(R.id.tracking_button);
-
-        tracking.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AssistantWelcomeActivity.this,MapsActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        Profile_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AssistantWelcomeActivity.this,Profile.class);
-                startActivity(intent);
-            }
-        });
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
     }
 
-    public void onClickBack(){
-        Intent intent = new Intent(AssistantWelcomeActivity.this, MainActivity.class);
-        startActivity(intent);
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        LatLng uj_loc = new LatLng(21.5813983, 39.1807568);
+        mMap.addMarker(new MarkerOptions().position(uj_loc).title("Blind student"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(uj_loc));
+        CameraUpdate zoom=CameraUpdateFactory.zoomTo(50);
+        mMap.animateCamera(zoom);
     }
+//----------------------------------------------------------------------------------------------------
+// IF YOU ARE USING REAL MOBILE , THIS CODE WORKING WITH THAT
 
-}
-
-/*
-private GoogleMap map;
+/* private GoogleMap map;
     DatabaseReference database = null;
 
 
@@ -210,5 +201,5 @@ private GoogleMap map;
         }
     }
 }
-
- */
+*/
+}

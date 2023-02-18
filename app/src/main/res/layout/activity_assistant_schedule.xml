@@ -253,6 +253,25 @@
         </TableRow>
 
     </TableLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Save"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="SAVE"
+        android:layout_marginTop="20dp"
+        app:cornerRadius="20dp"
+        android:backgroundTint="@color/lavender"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/lavender"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:text="DISPLAY SCHEDULE "/>
 
 
 
@@ -260,7 +279,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:paddingBottom="20dp"
         android:weightSum="10"
@@ -495,37 +514,22 @@
     </TableLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="10dp">
+
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Remove"
+            android:id="@+id/BACK"
             android:gravity="center"
-            android:layout_gravity="left"
-            android:text="Remove"
+            android:layout_gravity="center"
+            android:text="back"
             android:onClick="onClickBack"
             app:cornerRadius="20dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/lavender"/>
 
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Save"
-            android:gravity="center"
-            android:layout_gravity="right"
-            android:layout_marginLeft="200dp"
-            android:text="SAVE"
-            app:cornerRadius="20dp"
-            android:backgroundTint="@color/lavender"/>
 
-    </LinearLayout>
 
 
 
